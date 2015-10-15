@@ -1,0 +1,7 @@
+This is a simple command top copy files from host A to host B.
+Copy the jar file xfer-xxx.jar to both hosts.
+Run it on the receiving side like so: "java -jar xfer-20150929.jar"
+And on the sending sinde like so: "java -jar xfer-20150929.jar -h <receiving host> <file/directory to transfer>"
+For command line option help, call "java -jar xfer-20150929.jar -help".
+
+To build, call "build.sh" in a cygwin or Linux environment. Otherwise, just compile the Java classes and run them from where they were built.
