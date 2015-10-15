@@ -1,0 +1,15 @@
+* TODO: modify-window: round to 1000ms between Windows and Linux
+* TODO: queue for opening/closing file input streams in background thread
+*      (opening file io takes a long time); maybe not worthwhile, network io takes longer
+* TODO: if filenames differ just by upper/lower case, instead of overwrite,
+*      create new file with ".1" appended (for Windows: BLAH.XYZ is the same as
+*      blah.xyz)
+* TODO: create empty directories; problem: can't just open outputstream, needs protocol change
+* TODO: special case when file to send contains ":" in file name (on Windows)
+* TODO: encrypt transfer
+* TODO: resume copying after connection error or other breaks in transmission (like wget -c)
+
+* DONE 27.6.2011: progress bar
+* DONE 27.6.2011: test if file to send can be opened before transmitting file name (cygwin file name probs)
+* DONE: Windows, cygwin output directory "-t h:/tmp" changes to "/cygdrive/h/H:/tmp/"
+* DONE: bug with file in root directory: first character is dropped (rootless path) (15.7.2011)

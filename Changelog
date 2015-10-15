@@ -1,0 +1,80 @@
+2012-04-03
+	incorrect rounding  and poss. div. by zero while dividing for bytesPerSecond: must be
+	(transferBytes*1000.0 / (transferTimeMillis)), not 
+        (transferBytes / (transferTimeMillis / 1000));
+
+2012-03-28
+	receiver returned source md5 instead of locally computed one
+	
+2012-03-26
+	Xfer3: NIO, version xfer3.5
+
+2011-09-13
+	Option parser: nicht usage() zeigen, wenn nur Parameter ohne Argument
+	uebergeben werden (z.B. "-h")
+
+2011-09-01
+	format "Each tick ..." as KiB/MiB/GiB
+2011-08-12
+	write sent rate in INFO when printing progress bar, else in FINE
+
+2011-08-10
+	logging time format ohne millisekunden
+	neue Option -mod modify window fuer timestamp-Vergleiche
+	Level.FINE statt INFO fuer root directory logging
+
+2011-08-08
+	fix formatTransferRate: division gab Ganzzahlwerte, braucht 1024.0 statt 1024
+
+2011-08-05
+	Review log levels: default nur Sending.../Receiving... und
+	warnungen/fehler; ist übersichtlicher
+
+2011-07-15
+	Fix bug: zu sendende Datei im root-Verzeichnis wurde 1. Buchstabe
+	abgeschnitten, weil Pfad 1 "/" weniger enthält als bei anderen
+	Verzeichnissen
+	Fix cygpath replace "/" quoteReplacement"\\"
+
+2011-07-12
+	Fix findbugs: DateFormats mit ThreadLocal
+
+2011-07-06
+	Fix writeToStream(): schreibe byte[]{0} statt 0 bei compression, sonst u.U.
+	ArrayIndexOutOfBoundsException.
+
+2011-06-28 
+	Better format transfer rate for sent/received data.
+	Fix options error: -b<n> would skip next param
+
+2011-06-27 
+	Print progress bar, option "-b[<num>]"
+
+2011-05-16
+	Print version in CONFIG log level and with "-v" command line option
+
+2011-03-31
+	New option "-i" to restrict incoming ip address ranges
+
+2011-03-29
+	Allow empty directories
+	New option "-O": if target file exists already, create transferred file
+	with suffix ".xfer" because on Windows, BLA.TXT and bla.txt are the same
+	file, whereas everywhere else they are not.
+
+2011-03-25
+	Stream compression ("-z" option)
+	"-Z" <1|5|9> compression grade
+
+2011-03-23
+	Fix lastModificationDate on Windows: file must be closed before calling
+	method
+
+2011-03-21
+	Fix mkdir error if already exists. Remove various flush() calls for
+	speedup.
+	New class Xfer2 which keeps network connection alive between files; uses
+	version "xfer3.3"
+	
+2011-03-09
+	Log modification date of received file, warn if different.
