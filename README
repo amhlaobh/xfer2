@@ -1,7 +1,16 @@
-This is a simple command top copy files from host A to host B.
-Copy the jar file xfer-xxx.jar to both hosts.
-Run it on the receiving side like so: "java -jar xfer-20150929.jar"
-And on the sending sinde like so: "java -jar xfer-20150929.jar -h <receiving host> <file/directory to transfer>"
-For command line option help, call "java -jar xfer-20150929.jar -help".
+This is a simple command top copy files from host A to host B (or from A to A).
 
-To build, call "build.sh" in a cygwin or Linux environment. Otherwise, just compile the Java classes and run them from where they were built.
+Installing:
+Copy the jar file xfer-xxx.jar to both hosts.
+(Java runtime environment is necessary on both hosts).
+
+Running:
+There are two modes: receiving and sending. The receiver is a service that waits in a loop for connections from senders and processes the incoming files. The sender is a one-shot program for sending single files or directories (recursively).
+
+Run it on the receiving side like so: "java -jar xfer-20150929.jar" (adjust the name of the .jar file)
+And on the sending side like so: "java -jar xfer-20150929.jar -h <receiving host> <file/directory to transfer>"
+For command line option help, call "java -jar xfer-20150929.jar -help".
+To adjust logging, add the "-l" command line option, e.g. for most detailed: "java -jar xfer-20150929.jar -l SEVERE ... <other options>"
+
+To build, call "build.sh" in a cygwin or Linux environment. Otherwise, just compile the Java classes and run them from where they were built. Or download the .jar file from the github release area.
+
